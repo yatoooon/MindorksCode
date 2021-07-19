@@ -1,3 +1,4 @@
+include ':hilt_example'
 include ':mvvm_example'
 include ':kotlin_example'
 rootProject.name = "MindorksCode"
