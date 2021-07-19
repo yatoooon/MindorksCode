@@ -3,7 +3,7 @@ package com.yatoooon.hilt_example.di.module
 import com.yatoooon.hilt_example.BuildConfig
 import com.yatoooon.hilt_example.data.api.ApiHelper
 import com.yatoooon.hilt_example.data.api.ApiService
-import com.yatoooon.mvvm_example.data.api.ApiHelperImpl
+import com.yatoooon.hilt_example.data.api.ApiHelperImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

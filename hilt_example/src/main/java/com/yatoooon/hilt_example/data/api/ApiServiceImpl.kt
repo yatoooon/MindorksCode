@@ -1,4 +1,4 @@
-package com.yatoooon.mvvm_example.data.api
+package com.yatoooon.hilt_example.data.api
 
 import com.yatoooon.hilt_example.data.api.ApiHelper
 import com.yatoooon.hilt_example.data.api.ApiService
