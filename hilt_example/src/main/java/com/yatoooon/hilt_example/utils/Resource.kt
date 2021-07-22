@@ -1,6 +1,5 @@
 package com.yatoooon.hilt_example.utils
 
-
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
 
     companion object {
@@ -16,7 +15,5 @@ data class Resource<out T>(val status: Status, val data: T?, val message: String
         fun <T> loading(data: T?): Resource<T> {
             return Resource(Status.LOADING, data, null)
         }
-
     }
-
 }

@@ -26,7 +26,8 @@ class MainAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         DataViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_layout, parent,
+                R.layout.item_layout,
+                parent,
                 false
             )
         )
@@ -39,5 +40,4 @@ class MainAdapter(
     fun addData(list: List<User>) {
         users.addAll(list)
     }
-
 }

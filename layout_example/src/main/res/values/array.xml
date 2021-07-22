@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="bg_color">
+        <item name="bg_screen1">#f64c73</item>
+        <item name="bg_screen2">#20d2bb</item>
+        <item name="bg_screen3">#3395ff</item>
+        <item name="bg_screen4">#c873f4</item>
+    </array>
+</resources>
