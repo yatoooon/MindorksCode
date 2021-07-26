@@ -9,14 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.yatoooon.layout_example.ViewPager2Activity"></activity>
+        <activity android:name="com.yatoooon.layout_example.MotionLayoutActivity"></activity>
+        <activity
+            android:name="com.yatoooon.layout_example.TabLayoutActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.yatoooon.layout_example.DrawerNavigationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.yatoooon.layout_example.BottomNavigationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.yatoooon.layout_example.BottomSheetActivity" />
+        <activity android:name="com.yatoooon.layout_example.FlexboxlayoutActivity" />
+        <activity android:name="com.yatoooon.layout_example.RefreshActivity" />
+        <activity android:name="com.yatoooon.layout_example.ViewPager2Activity" />
         <activity android:name="com.yatoooon.layout_example.ViewPagerActivity" />
         <activity android:name="com.yatoooon.layout_example.RecyclerViewActivity" />
         <activity
             android:name="com.yatoooon.layout_example.CoordinatorLayoutActivity"
             android:label="@string/title_activity_scroll_based_activtiy"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name="com.yatoooon.layout_example.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

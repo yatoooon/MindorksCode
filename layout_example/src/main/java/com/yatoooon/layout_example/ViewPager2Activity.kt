@@ -36,32 +36,32 @@ class ViewPagerAdapter : RecyclerView.Adapter<PagerVH>() {
         PagerVH(LayoutInflater.from(parent.context).inflate(R.layout.item_page, parent, false))
 
     //get the size of color array
-    override fun getItemCount(): Int = Int.MAX_VALUE
+    override fun getItemCount(): Int = 10
 
     //binding the screen with view
     override fun onBindViewHolder(holder: PagerVH, position: Int) = holder.itemView.run {
-        if(position == 0){
+        if (position == 0) {
             tvTitle.text = "ViewPager2"
             tvAbout.text = "In this application we will learn about ViewPager2"
             container.setBackgroundResource(colors[position])
         }
-        if(position == 1) {
+        if (position == 1) {
             tvTitle.text = "ViewPager2"
             tvAbout.text = "In this application we will learn about ViewPager2"
             container.setBackgroundResource(colors[position])
         }
-        if(position == 2) {
+        if (position == 2) {
             tvTitle.text = "ViewPager2"
             tvAbout.text = "In this application we will learn about ViewPager2"
             container.setBackgroundResource(colors[position])
         }
-        if(position == 3) {
+        if (position == 3) {
             tvTitle.text = "ViewPager2"
             tvAbout.text = "In this application we will learn about ViewPager2"
             container.setBackgroundResource(colors[position])
         }
         println("position$position")
-        //从position为4的时候 之后都是缓存
+        //从position4之后都是缓存
     }
 }
 
