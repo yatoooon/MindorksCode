@@ -58,13 +58,13 @@ data class Chapter(
 
 @Dao
 interface ChapterDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(chapter: Chapter)
     @Query("SELECT * FROM MindOrksDb ORDER BY chapterName ASC")
     fun getAllChapter(): List<Chapter>
 }
 
-@Database(entities = [Chapter::class], version = 1,exportSchema=false)
+@Database(entities = [Chapter::class], version = 1)
 abstract class ChapterDatabase : RoomDatabase() {
     abstract fun chapterDao(): ChapterDao
     companion object {

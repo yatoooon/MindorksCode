@@ -1,3 +1,4 @@
+include ':thread_example'
 include ':room_example'
 include ':fragment_example'
 include ':layout_example'
