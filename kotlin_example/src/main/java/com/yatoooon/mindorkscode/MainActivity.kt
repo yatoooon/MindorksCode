@@ -1,6 +1,7 @@
 package com.yatoooon.mindorkscode
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
+import org.json.JSONObject
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope { // CoroutineScope 协
         val lastName = "Shekhar"
         var message = "My name is: $firstName $lastName"
         // 换行
-        val text =
+        val text1 =
             """
         |First Line
         |Second Line
@@ -131,6 +133,40 @@ class MainActivity : AppCompatActivity(), CoroutineScope { // CoroutineScope 协
         performLetOperation()
 
         label()
+
+
+        //DSL
+        data class Student(
+            var name: String? = null,
+            var age: Int? = null,
+            var marks: Int? = null
+        )
+        val student = Student(
+            name = "MindOrks",
+            age = 20,
+            marks = 30
+        )
+        tvText?.apply{
+            text = "MindOrks"
+            setOnClickListener {
+
+            }
+            setTextColor(Color.BLACK)
+        }
+        class Json() : JSONObject() {
+            constructor(json: Json.() -> Unit) : this() {
+                this.json()
+            }
+            infix fun <T> String.to(value: T) {
+                put(this, value)
+            }
+        }
+        val json = Json {
+            "name" to "MindOrks"
+            "age" to 20
+        }
+        println(json)
+
     }
 
     // 方法
@@ -744,5 +780,7 @@ fun arrayAndList() {
 
 
 }
+
+
 
 

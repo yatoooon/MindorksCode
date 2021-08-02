@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yatoooon.mvvm_example.R
 import com.yatoooon.mvvm_example.data.api.ApiHelper
-import com.yatoooon.mvvm_example.data.api.ApiServiceImpl
+import com.yatoooon.mvvm_example.data.api.RetrofitBuilder
 import com.yatoooon.mvvm_example.data.model.User
 import com.yatoooon.mvvm_example.ui.base.ViewModelFactory
 import com.yatoooon.mvvm_example.ui.main.adapter.MainAdapter
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewModel() {
         mainViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiHelper(ApiServiceImpl()))
+            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
         ).get(MainViewModel::class.java)
     }
 }

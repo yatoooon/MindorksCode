@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupClicks() { // 当点击时 flow才会启动   所以flow are cold
         button.setOnClickListener {
 //            CoroutineScope(Dispatchers.Main).launch {//launch的上下文
-//                flow.collect {//从launch的线程的收集值
+//                flow.collect {//从launch的线程的收集值   //collect终端运算符  没有它flow不会启动
 //                    Log.d(TAG, it.toString())
 //                    text.text = it.toString()
 //                }
