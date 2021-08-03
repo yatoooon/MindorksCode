@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_dialog_with_data.view.*
 
-class DialogWithData : DialogFragment() {
+class DialogWithDataFragment : DialogFragment() {
 
     companion object {
 
@@ -43,7 +43,7 @@ class DialogWithData : DialogFragment() {
 
     private fun setupClickListeners(view: View) {
         view.btnSubmit.setOnClickListener {
-            viewModel.sendName(view.etName.text.toString())
+            viewModel.name.value = view.etName.text.toString()
             dismiss()
         }
     }

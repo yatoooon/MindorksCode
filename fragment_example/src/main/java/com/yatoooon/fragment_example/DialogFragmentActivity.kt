@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_dialog_fragment.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class DialogFragmentActivity : AppCompatActivity() {
     private lateinit var sharedViewModel: SharedViewModel
@@ -30,7 +29,7 @@ class DialogFragmentActivity : AppCompatActivity() {
             tvName.text = it
         })
         btnDataDialog.setOnClickListener {
-            DialogWithData().show(supportFragmentManager, DialogWithData.TAG)
+            DialogWithDataFragment().show(supportFragmentManager, DialogWithDataFragment.TAG)
         }
     }
 }
