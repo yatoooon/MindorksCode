@@ -1,7 +1,7 @@
 package com.yatoooon.mvvm_example.data.api
 
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitBuilder {
 
@@ -10,7 +10,7 @@ object RetrofitBuilder {
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
             .build() //Doesn't require the adapter
     }
 

@@ -1,10 +1,9 @@
-package com.yatoooon.mvvm_example.ui.base
+package com.yatoooon.mvvm_example.ui.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.yatoooon.mvvm_example.data.api.ApiHelper
 import com.yatoooon.mvvm_example.data.repository.MainRepository
-import com.yatoooon.mvvm_example.ui.main.viewmodel.MainViewModel
 
 class ViewModelFactory(private val apiHelper: ApiHelper) : ViewModelProvider.Factory {
 
