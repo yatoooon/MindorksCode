@@ -1,8 +1,9 @@
-package com.yatoooon.paging3_example.data.api
+package com.yatoooon.paging3_example.data.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.yatoooon.paging3_example.data.api.GitHubService
 import com.yatoooon.paging3_example.data.model.Item
 import com.yatoooon.paging3_example.data.source.RepoPagingSource
 import kotlinx.coroutines.flow.Flow

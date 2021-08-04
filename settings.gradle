@@ -1,3 +1,4 @@
+include ':paging3_example'
 include ':viewmodel_example'
 include ':livedata_example'
 include ':workmanager_example'

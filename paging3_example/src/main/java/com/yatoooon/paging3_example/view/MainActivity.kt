@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter =
             repoAdapter.withLoadStateFooter(FooterAdapter { repoAdapter.retry() })
         lifecycleScope.launch {
-            viewModel.getPagingData().collect { pagingData ->
+            viewModel.pagingdata.collect { pagingData ->
                 repoAdapter.submitData(pagingData)
             }
         }
