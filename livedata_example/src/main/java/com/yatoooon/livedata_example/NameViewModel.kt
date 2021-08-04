@@ -12,4 +12,8 @@ class NameViewModel : ViewModel() {
     val msg: SingleLiveEvent<String> by lazy {
         SingleLiveEvent<String>()
     }
+
+    val test: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
 }
