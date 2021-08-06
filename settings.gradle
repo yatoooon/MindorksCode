@@ -1,3 +1,5 @@
+include ':mixed_knowledge'
+include ':camerax_example'
 include ':paging3_example'
 include ':viewmodel_example'
 include ':livedata_example'
