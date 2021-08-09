@@ -1,3 +1,5 @@
+include ':databinding_example'
+include ':viewbinding_example'
 include ':mixed_knowledge'
 include ':camerax_example'
 include ':paging3_example'
