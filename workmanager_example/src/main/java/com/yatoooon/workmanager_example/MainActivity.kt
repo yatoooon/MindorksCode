@@ -3,14 +3,12 @@ package com.yatoooon.workmanager_example
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.work.*
 import java.util.concurrent.TimeUnit
 
 
-class MainActivity : AppCompatActivity(), LifecycleOwner {
+class MainActivity : AppCompatActivity(){
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

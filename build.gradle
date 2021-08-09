@@ -17,6 +17,8 @@ buildscript {
 
         classpath "org.jlleitschuh.gradle:ktlint-gradle:9.4.1"
 
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+
 
     }
 }

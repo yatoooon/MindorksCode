@@ -58,7 +58,7 @@ data class Blog(val title: String, val desc: String)
 class CustomAdapter(val blogList: ArrayList<Blog>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    //this method is returning the view for each item in the list
+    //this method is returning the view for each layout_item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.list_layout, parent, false)
         return ViewHolder(v)
