@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.util.List" />
+
+        <import type="com.yatoooon.databinding_example.User" />
+
+        <import type="android.view.View" />
+
+        <import type="android.widget.ImageView" />
+
+        <!--别名防冲突-->
+        <import
+            alias="CustomView"
+            type="com.yatoooon.databinding_example.View" />
+
+        <import type="android.util.SparseArray" />
+
+        <import type="java.util.Map" />
+
+        <variable
+            name="text"
+            type="String" /><!--基本数据类型-->
+        <variable
+            name="user"
+            type="User" />
+
+        <variable
+            name="listUser"
+            type="List&lt;User>" />
+
+
+        <variable
+            name="list"
+            type="List&lt;Integer>" />
+
+        <variable
+            name="sparse"
+            type="SparseArray&lt;String>" />
+
+        <variable
+            name="map"
+            type="Map&lt;String, String>" />
+
+        <variable
+            name="index"
+            type="int" />
+
+        <variable
+            name="key"
+            type="String" />
+
+        <variable
+            name="handlers"
+            type="com.yatoooon.databinding_example.MyHandlers" />
+
+        <import type="com.yatoooon.databinding_example.Task" />
+
+        <variable
+            name="task"
+            type="Task" />
+
+        <variable
+            name="presenter"
+            type="com.yatoooon.databinding_example.Presenter" />
+
+        <variable
+            name="customview"
+            type="CustomView" />
+
+        <variable
+            name="isChecked"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{text,default = @string/app_name}" />   <!--引用资源-->
+
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name,default=username}" />
+
+        <TextView
+            android:id="@+id/tv_user_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(user.age) ,default = 20}"
+            android:visibility="@{user.age &lt; 20 ? View.GONE : View.VISIBLE}" />
+
+        <EditText
+            android:id="@+id/example_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="" />
+        <!--布局引用-->
+        <TextView
+            android:id="@+id/example_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{exampleText.text}" />
+
+        <TextView
+            android:id="@+id/tv_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(list[1])}" />
+
+        <TextView
+            android:id="@+id/tv_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{map["firstName"]}' />
+
+        <!--方法引用点击监听传递-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{handlers::onClickFriend}" />
+
+        <!--监听器绑定-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> presenter.onSaveClick(task)}" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onCheckedChanged="@{(cb, isChecked) -> presenter.onCompletedChanged(task, isChecked)}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onLongClick="@{(theView) -> presenter.onLongClick(theView, task)}" />
+
+        <TextView
+            android:id="@+id/tv_static"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{Task.runCount()}' /> <!--静态方法-->
+
+        <include
+            layout="@layout/layout_name"
+            bind:user="@{user}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            bind:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+        <!--属性预设置-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`YATOOOON`}" />
+
+        <!--类型转换-->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@{false ? @color/colorPrimary : @color/colorAccent}" />
+
+        <CheckBox
+            android:id="@+id/cb_sxbd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={isChecked}"
+            android:text="@{isChecked.toString()}" />
+
+        <Button
+            android:id="@+id/bt_sxbd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{isChecked.toString()}" />
+
+
+    </LinearLayout>
+</layout>
