@@ -20,7 +20,8 @@ import com.yatoooon.architecture.databinding.LayoutItemBinding
 class RepoAdapter : PagingDataAdapter<Item, RepoAdapter.BindingHolder>(COMPARATOR) {
 
 
-    inner class BindingHolder(val binding: LayoutItemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class BindingHolder(val binding: LayoutItemBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
         return BindingHolder(
@@ -39,13 +40,13 @@ class RepoAdapter : PagingDataAdapter<Item, RepoAdapter.BindingHolder>(COMPARATO
             holder.binding.setVariable(BR.item, item)
             holder.binding.executePendingBindings()
             holder.itemView.setOnClickListener {
-                onClick(item)
+                onClick?.invoke(item, it)
             }
         }
     }
 
-    var onClick: (Item) -> Unit = {}
-    fun setOnClickListener(onClick: (Item) -> Unit) {
+    var onClick: ((Item, View) -> Unit)? = null
+    fun setOnClickListener(onClick: (Item, View) -> Unit) {
         this.onClick = onClick
     }
 

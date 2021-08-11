@@ -26,10 +26,13 @@
     <fragment
         android:id="@+id/mainDetailFragment"
         android:name="com.yatoooon.architecture.ui.main.MainDetailFragment"
-        android:label="{name}"
+        android:label="{title}"
         tools:layout="@layout/main_detail_fragment">
         <argument
             android:name="html_url"
+            app:argType="string" />
+        <argument
+            android:name="title"
             app:argType="string" />
     </fragment>
 </navigation>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yatoooon.architecture.databinding.MainFragmentBinding
@@ -25,10 +26,9 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private var _binding: MainFragmentBinding? = null
+    private lateinit var binding: MainFragmentBinding
 
     // This property is only valid between onCreateView and onDestroyView
-    private val binding get() = _binding!!
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -38,7 +38,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -53,8 +53,12 @@ class MainFragment : Fragment() {
                 repoAdapter.submitData(pagingData)
             }
         }
-        repoAdapter.setOnClickListener { item ->
-
+        repoAdapter.setOnClickListener { item, view ->
+            val action = MainFragmentDirections.actionMainFragmentToMainDetailFragment(
+                item.html_url,
+                item.name
+            )
+            Navigation.findNavController(view).navigate(action)
         }
         repoAdapter.addLoadStateListener {
             when (it.refresh) {
@@ -79,9 +83,4 @@ class MainFragment : Fragment() {
         }
     }
 
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

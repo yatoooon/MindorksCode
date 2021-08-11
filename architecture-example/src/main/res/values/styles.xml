@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">#0277BD</item>
+        <item name="colorControlNormal">#FFFFFF</item>
         <item name="colorPrimaryVariant">#004C8C</item>
         <item name="colorOnPrimary">#FFFFFF</item>
         <item name="colorSecondary">#9E9E9E</item>

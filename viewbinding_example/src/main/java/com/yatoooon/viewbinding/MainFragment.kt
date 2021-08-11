@@ -7,18 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.yatoooon.viewbinding.databinding.ResultProfileBinding
 
-class MainFragment: Fragment() {
+class MainFragment : Fragment() {
 
-    private var _binding: ResultProfileBinding? = null
+    private lateinit var binding: ResultProfileBinding
     // This property is only valid between onCreateView and onDestroyView
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = ResultProfileBinding.inflate(inflater, container, false)
+        binding = ResultProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -28,9 +27,5 @@ class MainFragment: Fragment() {
         binding.btConfirm.setOnClickListener { println("onClick") }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
 }
