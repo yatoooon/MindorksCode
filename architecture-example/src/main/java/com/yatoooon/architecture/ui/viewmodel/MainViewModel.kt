@@ -1,5 +1,6 @@
 package com.yatoooon.architecture.ui.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -14,4 +15,5 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(mainRepository: MainRepository) : ViewModel() {
     val pagingData: Flow<PagingData<Item>> = mainRepository.getPagingData().cachedIn(viewModelScope)
+    val isRefreshing: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
 }

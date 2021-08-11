@@ -1,11 +1,15 @@
 package com.yatoooon.architecture.data.model
 
-data class SearchResponse (
+import android.os.Parcelable
+
+@kotlinx.parcelize.Parcelize
+data class SearchResponse(
     val incomplete_results: Boolean,
     val items: List<Item>,
     val total_count: String
-)
+) : Parcelable
 
+@kotlinx.parcelize.Parcelize
 data class Item(
     val archive_url: String,
     val archived: Boolean,
@@ -54,7 +58,7 @@ data class Item(
     val license: License,
     val merges_url: String,
     val milestones_url: String,
-    val mirror_url: Any,
+    val mirror_url: String,
     val name: String,
     val node_id: String,
     val notifications_url: String,
@@ -81,16 +85,18 @@ data class Item(
     val url: String,
     val watchers: String,
     val watchers_count: String
-)
+) : Parcelable
 
+@kotlinx.parcelize.Parcelize
 data class License(
     val key: String,
     val name: String,
     val node_id: String,
     val spdx_id: String,
     val url: String
-)
+) : Parcelable
 
+@kotlinx.parcelize.Parcelize
 data class Owner(
     val avatar_url: String,
     val events_url: String,
@@ -110,4 +116,4 @@ data class Owner(
     val subscriptions_url: String,
     val type: String,
     val url: String
-)
+) : Parcelable
