@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.yatoooon.coordinator_example.R
+import kotlinx.android.synthetic.main.activity_tablayout.*
 import kotlinx.android.synthetic.main.activity_view_pager2.*
 import kotlinx.android.synthetic.main.item_page.view.*
 
@@ -17,7 +20,10 @@ class ViewPager2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_view_pager2)
 
         view_pager2.adapter = ViewPagerAdapter()
-        view_pager2.orientation = ViewPager2.ORIENTATION_VERTICAL
+        view_pager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        TabLayoutMediator(tab_layout, view_pager2) { tab, position ->
+            tab.text = "position$position"
+        }.attach()
 
     }
 }
@@ -40,28 +46,8 @@ class ViewPagerAdapter : RecyclerView.Adapter<PagerVH>() {
 
     //binding the screen with view
     override fun onBindViewHolder(holder: PagerVH, position: Int) = holder.itemView.run {
-        if (position == 0) {
-            tvTitle.text = "ViewPager2"
-            tvAbout.text = "In this application we will learn about ViewPager2"
-            container.setBackgroundResource(colors[position])
-        }
-        if (position == 1) {
-            tvTitle.text = "ViewPager2"
-            tvAbout.text = "In this application we will learn about ViewPager2"
-            container.setBackgroundResource(colors[position])
-        }
-        if (position == 2) {
-            tvTitle.text = "ViewPager2"
-            tvAbout.text = "In this application we will learn about ViewPager2"
-            container.setBackgroundResource(colors[position])
-        }
-        if (position == 3) {
-            tvTitle.text = "ViewPager2"
-            tvAbout.text = "In this application we will learn about ViewPager2"
-            container.setBackgroundResource(colors[position])
-        }
-        println("position$position")
-        //从position4之后都是缓存
+        tvTitle.text = "position$position"
+        container.setBackgroundResource(colors[position % 4])
     }
 }
 

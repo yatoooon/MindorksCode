@@ -1,3 +1,4 @@
+include ':inject_example'
 include ':architecture-example'
 include ':databinding_example'
 include ':viewbinding_example'
