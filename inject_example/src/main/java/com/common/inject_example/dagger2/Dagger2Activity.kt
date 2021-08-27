@@ -26,19 +26,26 @@ class Dagger2Activity : AppCompatActivity() {
     @Named("StudentScope")
     lateinit var student4: Student
 
-
     @Inject
     lateinit var sp: SharedPreferences
+
+
+    @Inject
+    lateinit var advanceImpl: AdvanceImpl
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        DaggerActivityComponent.builder()
-            .activityModule(ActivityModule())
-            .appComponent(MyApplication.getAppComponent(this))
-            .build()
+//        DaggerActivityComponent.builder()
+//            .activityModule(ActivityModule())
+//            .appComponent(MyApplication.getAppComponent(this))
+//            .build()
+//            .inject(this)
+        DaggerActivityComponent.factory()
+            .create(MyApplication.getAppComponent(this))
             .inject(this)
 
 
@@ -52,5 +59,8 @@ class Dagger2Activity : AppCompatActivity() {
 
         tv_name.text = "sp：" + sp.getString("name", "def") +
                 "无Scope：" + (student1 === student2).toString() + "有Scope：" + (student3 === student4).toString()
+
+
+        advanceImpl.printName()
     }
 }

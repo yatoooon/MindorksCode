@@ -9,12 +9,14 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         appComponent = DaggerAppComponent.builder()
-            .appModule(AppModule(this))
+//            .appModule(AppModule(this))
+            .application(this)
             .build()
         appComponent.inject(this)
 
     }
-    companion object{
+
+    companion object {
         fun getAppComponent(context: Context): AppComponent {
             val myApplication = context.applicationContext as MyApplication
             return myApplication.appComponent

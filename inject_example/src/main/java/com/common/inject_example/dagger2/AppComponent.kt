@@ -2,6 +2,7 @@ package com.common.inject_example.dagger2
 
 import android.app.Application
 import android.content.SharedPreferences
+import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
@@ -13,4 +14,11 @@ interface AppComponent {  //负责注入   把module提供的对象inject到acti
     val application: Application
 
     val sharedPreferences:SharedPreferences
+
+    @Component.Builder //使用 @Component.Builder 和 @BindsInstance 来自定义 Builder 类,那么被@BindsInstance注解方法里面的参数在 Builder 类中都有对应的成员变量。
+    interface Builder {
+        fun build(): AppComponent
+        @BindsInstance
+        fun application(application: Application): Builder
+    }
 }

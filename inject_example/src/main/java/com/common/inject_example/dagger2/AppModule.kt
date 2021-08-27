@@ -8,17 +8,18 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class AppModule(private val application: Application) {  //@Module类 依赖提供者  提供可以注入的对象
+class AppModule() {  //@Module类 依赖提供者  提供可以注入的对象    用private val application: Application
 
     @Provides
     @Singleton //@Singleton 确保全局类的单个实例
-    fun provideSharedPreferences(): SharedPreferences = application.getSharedPreferences(
-        "spfile",
-        Context.MODE_PRIVATE
-    )
+    fun provideSharedPreferences(application: Application): SharedPreferences =
+        application.getSharedPreferences(
+            "spfile",
+            Context.MODE_PRIVATE
+        )
 
-    @Provides
-    fun provideApplication(): Application {
-        return application
-    }
+//    @Provides
+//    fun provideApplication(): Application {
+//        return application
+//    }
 }
